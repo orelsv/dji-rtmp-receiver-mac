@@ -33,8 +33,8 @@ A local RTMP receiver for macOS that brings your DJI Action 5 Pro and DJI Pocket
 ## Build from source
 
 ```bash
-git clone https://github.com/orelsv/live-stream-ocm.git
-cd live-stream-ocm
+git clone https://github.com/orelsv/dji-rtmp-receiver-mac.git
+cd dji-rtmp-receiver-mac
 npm install
 npm start                  # dev run
 npm run build              # produces dist/*.dmg for the host architecture
