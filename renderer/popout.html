@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline'; media-src 'self' http://localhost:8000 blob:; connect-src 'self' http://localhost:8000 ws://localhost:8000; worker-src 'self' blob:; child-src 'self' blob:" />
+  <title>Live Stream OCM</title>
+  <link rel="stylesheet" href="popout.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.js"></script>
+</head>
+<body>
+  <div class="drag-bar">
+    <span class="status-dot offline"></span>
+    <select id="stream-select"></select>
+    <div class="spacer"></div>
+    <span id="hint">Drag to another screen → green button for fullscreen</span>
+  </div>
+  <div class="video-wrap">
+    <div class="placeholder">Waiting for stream…</div>
+    <video muted playsinline></video>
+    <div class="error-overlay" hidden></div>
+  </div>
+  <script src="popout.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "name": "live-stream-ocm",
+  "version": "0.1.0",
+  "description": "RTMP receiver for DJI cameras (Action 5 Pro, Pocket 3) on macOS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac dmg",
+    "build:arm64": "electron-builder --mac dmg --arm64",
+    "build:x64": "electron-builder --mac dmg --x64",
+    "build:universal": "electron-builder --mac dmg --universal"
+  },
+  "author": "orelsv",
+  "license": "MIT",
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "node-media-server": "^2.7.0"
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.orelsv.livestreamocm",
+    "productName": "Live Stream OCM",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "package.json",
+      "!**/*.md",
+      "!**/.DS_Store"
+    ],
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**"
+    ],
+    "mac": {
+      "category": "public.app-category.video",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "${productName}",
+      "contents": [
+        { "x": 130, "y": 220 },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ]
+    }
+  }
+}

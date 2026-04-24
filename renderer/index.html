@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline'; media-src 'self' http://localhost:8000 blob:; connect-src 'self' http://localhost:8000 ws://localhost:8000; worker-src 'self' blob:; child-src 'self' blob:" />
+  <title>Live Stream OCM</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">Live Stream OCM</div>
+    <div class="ip-info">
+      <span class="label">IP:</span>
+      <select id="ip-select" class="mono"></select>
+      <button id="copy-ip" class="ghost">Copy</button>
+    </div>
+    <button id="open-recordings" class="ghost">Open recordings folder</button>
+  </header>
+
+  <main id="grid" class="grid"></main>
+
+  <template id="tile-tpl">
+    <section class="tile" data-key="">
+      <div class="tile-header">
+        <span class="status-dot offline" title="offline"></span>
+        <span class="tile-name"></span>
+        <div class="spacer"></div>
+        <button class="record ghost" title="Toggle recording">⏺ Rec</button>
+        <button class="popout ghost" title="Open in separate window (for second screen / projector)">⧉ Pop out</button>
+        <button class="fullscreen ghost" title="Fullscreen (double-click video)">⛶</button>
+      </div>
+      <div class="video-wrap">
+        <div class="placeholder">Waiting for stream…</div>
+        <video muted playsinline></video>
+        <div class="error-overlay" hidden></div>
+      </div>
+      <div class="tile-footer">
+        <span class="mono url"></span>
+        <button class="copy-url ghost">Copy URL</button>
+      </div>
+    </section>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
