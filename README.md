@@ -4,6 +4,14 @@ A local RTMP receiver for macOS that brings your DJI Action 5 Pro and DJI Pocket
 
 > Built because OBS can only **send** RTMP. There was no simple consumer app to **receive** it on a Mac.
 
+![Setup at Computer Museum Oldenburg](screenshots/WhatsApp%20Image%202026-05-04%20at%2017.49.19.jpeg)
+
+*Setup at [Computer Museum Oldenburg](https://computermuseum-oldenburg.de/) — MacBook running Live Stream OCM, with DJI Action 5 Pro on the left and DJI Pocket 3 on the right.*
+
+![Live Stream OCM UI with two camera previews](screenshots/69c6c42f-bb45-454e-a3fc-5039e819a50b.jpeg)
+
+*Both cameras streaming into the same window in real time (~1 s latency).*
+
 ## Features
 
 - Dual-camera preview in one window (stream keys `action5`, `pocket3`)
